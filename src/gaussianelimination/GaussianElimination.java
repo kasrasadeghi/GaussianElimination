@@ -13,10 +13,6 @@ import java.io.*;
  * @author Kasra
  */
 public class GaussianElimination {
-
-    /**
-     * @param args the command line arguments
-     */
     
     public static double inputDouble()
     {
@@ -50,10 +46,13 @@ public class GaussianElimination {
         System.out.println( "Please input an equation.");
         String equation = inputString();
         String[] equationParts = equation.split(" ");
-        int length = equationParts.size();
-        double[] vals = new double[equationParts.size()];
-        for (String part: equationParts) {
-            
+        double[] vals = new double[equationParts.length];
+        
+        for ( int i = 0; i < vals.length; ++i ) {
+            System.out.println(equationParts[i]);
+            vals[i] = Double.valueOf(equationParts[i]);
+            System.out.println(vals[i]);
         }
+        
     }
 }
