@@ -1,17 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gaussianelimination;
 
 import java.util.Scanner;
-import java.io.*;
 
-/**
- *
- * @author Kasra
- */
 public class GaussianElimination {
     
     public static double inputDouble()
@@ -52,19 +42,33 @@ public class GaussianElimination {
         GaussianElimination();
     }
     
+    
+    public static boolean isDouble( String input) 
+    {
+        try {
+            Double.valueOf(input);
+            return true;
+        } catch(NumberFormatException ex)
+        {
+            return false;
+        }
+    }
+    
+    public static boolean isDoubleWithCoefficient( String input)
+    {
+        //TODO: check to see if all of the leading digits are numbers
+        return true;
+        
+    }
+    
     public static void GaussianElimination()
     {
         System.out.println( "Please input an equation.");
         String equation = inputLine();
         String[] equationParts = equation.split(" ");
         double[] vals = new double[equationParts.length];
-        
         for ( int i = 0; i < vals.length; ++i ) {
-            System.out.print(equationParts[i] + ": ");
             vals[i] = Double.valueOf(equationParts[i]);
-            
-            System.out.println(vals[i]);
         }
-        
     }
 }
