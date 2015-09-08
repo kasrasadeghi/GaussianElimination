@@ -1,6 +1,7 @@
 package gaussianelimination;
 
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class GaussianElimination {
     
@@ -56,8 +57,7 @@ public class GaussianElimination {
     
     public static boolean isDoubleWithCoefficient( String input)
     {
-        //TODO: check to see if all of the leading digits are numbers {0-9, .}
-        //use patterns?
+        Pattern doubleWithCoefficient = Pattern.compile("[\\d]");
         return true;
         
     }
