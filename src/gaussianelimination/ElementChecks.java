@@ -26,7 +26,7 @@ public class ElementChecks {
     public static boolean isDoubleWithCoefficient( String input)
     {
         //Pattern dwcPattern = Pattern.compile();
-        return Pattern.matches("-?((\\d+)|(\\d+\\.\\d+))[a-zA-Z]+\\d*", input);
+        return Pattern.matches("-?((\\d+)|(\\d+\\.\\d+))?[a-zA-Z]+\\d*", input);
         //first make it so that 10width counts as 10 times the width variable
         //then make it that each character after 10 before a space counts as a separate variable
         //maybe make a thing in the beginning that asks for the variable names
@@ -34,9 +34,11 @@ public class ElementChecks {
     
     public static String getCoefficient( String input)
     {
-        Pattern doubleWithCoefficient = Pattern.compile("-?((\\d+)|(\\d+\\.\\d+))([a-zA-Z]+\\d*)");
+        Pattern doubleWithCoefficientTest = Pattern.compile("([a-zA-Z]+)");
+        Pattern doubleWithCoefficient = Pattern.compile("-?((\\d+)|(\\d+\\.\\d+))?([a-zA-Z]+\\d*)");
         Matcher m = doubleWithCoefficient.matcher(input);
-        for( int i = 0; i < m.groupCount(); ++i) System.out.println(m.group(i));
-        return null;
+        if (m.find())
+            return m.group(4);
+        else return null;
     }
 }

@@ -28,7 +28,8 @@ public class GaussianElimination {
     public static void main(String[] args) 
     {
         //GaussianElimination();
-        System.out.println(isDoubleWithCoefficient("10x"));
-        getCoefficient("10x");
+        String test = sc.next();
+        System.out.println(isDoubleWithCoefficient(test));
+        System.out.println(getCoefficient(test));
     }
 }

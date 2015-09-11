@@ -39,7 +39,7 @@ public class Equation {
         for (Double constant : constants) constants.set(0, constants.get(0)+constant);
         constants.set(0, -constants.get(0));
         System.out.println(constants.get(0));
-        
+        System.out.println("");
         
     }       
     
