@@ -1,13 +1,15 @@
 package gaussianelimination;
 
-import java.util.Scanner;
+import static gaussianelimination.ElementChecks.*;
+import java.util.*;
 import java.util.regex.Pattern;
 
 public class GaussianElimination {
     
+    private static final Scanner sc = new Scanner(System.in);
+    
     public static double inputDouble()
     {
-        Scanner sc = new Scanner( System.in);
         if ( sc.hasNextDouble())
             return sc.nextDouble();
         else {
@@ -16,60 +18,17 @@ public class GaussianElimination {
         }
     }
     
-    public static String inputString()
+    public static void GaussianElimination()
     {
-        Scanner sc = new Scanner( System.in);
-        if ( sc.hasNext())
-            return sc.next();
-        else {
-            System.out.println( "You must input a string.");
-            return inputString();
-        }
-    }
-    
-    public static String inputLine()
-    {
-        Scanner sc = new Scanner( System.in);
-        if ( sc.hasNextLine())
-            return sc.nextLine();
-        else {
-            System.out.println( "You must input a string.");
-            return inputLine();
-        }
+        System.out.println( "Please input an equation.");
+        Equation equation = new Equation(sc.nextLine());
+        
     }
     
     public static void main(String[] args) 
     {
-        GaussianElimination();
-    }
-    
-    
-    public static boolean isDouble( String input) 
-    {
-        try {
-            Double.valueOf(input);
-            return true;
-        } catch(NumberFormatException ex)
-        {
-            return false;
-        }
-    }
-    
-    public static boolean isDoubleWithCoefficient( String input)
-    {
-        Pattern doubleWithCoefficient = Pattern.compile("[\\d]");
-        return true;
-        
-    }
-    
-    public static void GaussianElimination()
-    {
-        System.out.println( "Please input an equation.");
-        String equation = inputLine();
-        String[] equationParts = equation.split(" ");
-        double[] vals = new double[equationParts.length];
-        for ( int i = 0; i < vals.length; ++i ) {
-            vals[i] = Double.valueOf(equationParts[i]);
-        }
+        //GaussianElimination();
+        System.out.println(isDoubleWithCoefficient("10x"));
+        getCoefficient("10x");
     }
 }
