@@ -2,7 +2,6 @@ package gaussianelimination;
 
 import static gaussianelimination.ElementChecks.*;
 import java.util.*;
-import java.util.regex.Pattern;
 
 public class GaussianElimination {
     
@@ -27,9 +26,10 @@ public class GaussianElimination {
     
     public static void main(String[] args) 
     {
-        //GaussianElimination();
-        String test = sc.next();
-        System.out.println(isDoubleWithCoefficient(test));
-        System.out.println(getCoefficient(test));
+        GaussianElimination();
+//        String test = sc.next();
+//        System.out.println(isCoeffVar(test));
+//        System.out.println(getCoefficient(test));
+//        System.out.println(getVariable(test));
     }
 }

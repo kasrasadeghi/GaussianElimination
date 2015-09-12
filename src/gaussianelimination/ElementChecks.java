@@ -12,6 +12,7 @@ import java.util.regex.*;
  * @author KSADEGHI
  */
 public class ElementChecks {
+    
     public static boolean isDouble( String input) 
     {
         try {
@@ -23,7 +24,9 @@ public class ElementChecks {
         }
     }
     
-    public static boolean isDoubleWithCoefficient( String input)
+    static Pattern doubleCoeffWithVar = Pattern.compile("-?((\\d+)|(\\d+\\.\\d+))?([a-zA-Z]+\\d*)");
+    
+    public static boolean isCoeffVar( String input)
     {
         //Pattern dwcPattern = Pattern.compile();
         return Pattern.matches("-?((\\d+)|(\\d+\\.\\d+))?[a-zA-Z]+\\d*", input);
@@ -34,9 +37,15 @@ public class ElementChecks {
     
     public static String getCoefficient( String input)
     {
-        Pattern doubleWithCoefficientTest = Pattern.compile("([a-zA-Z]+)");
-        Pattern doubleWithCoefficient = Pattern.compile("-?((\\d+)|(\\d+\\.\\d+))?([a-zA-Z]+\\d*)");
-        Matcher m = doubleWithCoefficient.matcher(input);
+        Matcher m = doubleCoeffWithVar.matcher(input);
+        if (m.find())
+            return m.group(1);
+        else return null;
+    }
+    
+    public static String getVariable(String input)
+    {
+        Matcher m = doubleCoeffWithVar.matcher(input);
         if (m.find())
             return m.group(4);
         else return null;
