@@ -1,21 +1,11 @@
 package gaussianelimination;
 
-import static gaussianelimination.ElementChecks.*;
+import static gaussianelimination.Ec.*;
 import java.util.*;
 
 public class GaussianElimination {
     
     private static final Scanner sc = new Scanner(System.in);
-    
-    public static double inputDouble()
-    {
-        if ( sc.hasNextDouble())
-            return sc.nextDouble();
-        else {
-            System.out.println( "You must input a double.");
-            return inputDouble();
-        }
-    }
     
     public static void GaussianElimination()
     {
@@ -24,12 +14,20 @@ public class GaussianElimination {
         
     }
     
+    public static void TermChecker()
+    {
+        System.out.println("Please input a term you want "
+                + "to check the value of.");
+        String next = sc.next();
+        System.out.println(isCoeffVar(next));
+    }
+    
+    
+    
     public static void main(String[] args) 
     {
         GaussianElimination();
-//        String test = sc.next();
-//        System.out.println(isCoeffVar(test));
-//        System.out.println(getCoefficient(test));
-//        System.out.println(getVariable(test));
+//        TermChecker();
+        //TODO read 5 - 4 as 5 + -4
     }
 }
